@@ -1,3 +1,6 @@
-<h1>{{ game.name }}</h1>
-
-<p>{{ game.date }}</p>
+<li>
+    <a href="{% url "game-detail" game.slug %}">
+        <h1>{{ game.name }}</h1>
+        <p>{{ game.date }}</p>
+    </a>
+</li>

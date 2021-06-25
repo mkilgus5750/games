@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ game.name }}{% endblock %}
+
+{% block content %}
+<section>
+    <h2>{{ game.name }}</h2>
+    {% for player in players %}
+        <p>{{ player }}</p>
+    {% endfor %}
+</section>
+{% endblock %}
