@@ -6,7 +6,9 @@
 <h1>All Games</h1>
 <section>
     <ul>
-
+        {% for game in games %}
+            {% include 'game_keeper/includes/game.html' %}
+        {% endfor %}
     </ul>
 </section>
 

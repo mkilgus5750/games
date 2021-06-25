@@ -2,15 +2,20 @@ from django.shortcuts import render, get_object_or_404
 from .models import Game
 # Create your views here.
 
+all_games = Game.objects.all()
+
 def index(request):
-    games = Game.objects.all().order_by("-date")[:3]
+    filtered_games = all_games.order_by("-date")[:3]
 
     return render(request, 'game_keeper/index.html', {
-        'games': games
+        'games': filtered_games
     })
 
 def games(request):
-    return render(request, 'game_keeper/all-games.html')
+    games = all_games.order_by("-date")
+    return render(request, 'game_keeper/all-games.html', {
+        'games': games 
+    })
 
 def game_detail(request, slug):
     game = get_object_or_404(Game, slug=slug)
